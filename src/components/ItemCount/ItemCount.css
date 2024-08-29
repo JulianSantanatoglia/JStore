@@ -1,0 +1,21 @@
+/* ############# ITEM COUNT #############*/
+.item-count {
+    color: #00dbc2ce;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding: 0 20px;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.number-count {
+    background-color: #e6e6e6ce;
+    /* width: 70px; */
+    padding: 10px 85px;
+    font-weight: 700;
+    font-size: 21px;
+}
+
+.count-container {
+    margin-top: 5px;
+}
