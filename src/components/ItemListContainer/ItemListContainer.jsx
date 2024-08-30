@@ -3,7 +3,7 @@ import { getProducts } from '../../utils/fetchData'
 import ItemList from '../ItemList/ItemList'
 import '../ItemListContainer/ItemListContainer.css'
 import { useParams } from 'react-router-dom'
-import { Spinner } from '../Banner/Spinner/Spinner'
+import { Spinner } from '../Spinner/Spinner'
 
 const ItemListContainer = ({  }) => {
     const [products, setProducts] = useState([])

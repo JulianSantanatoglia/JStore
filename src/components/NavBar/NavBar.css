@@ -71,3 +71,10 @@
         padding-bottom: 10px;
 }
 }
+
+/* @media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex;
+        flex-basis: auto;
+    }
+} */
