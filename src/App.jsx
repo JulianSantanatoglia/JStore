@@ -6,8 +6,8 @@ import Footer from './components/Footer/Footer'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
 import { CartProvider } from './context/CartContext'
+import Layout from './components/pages/Layout'
 
 
 // COMPONENTES
@@ -16,8 +16,11 @@ function App() {
     <div className="App">
     <BrowserRouter>
     <CartProvider>
+
+    <Layout>
     <NavBar />
     <Banner slogan={'Vive tu pasión, viste tu equipo'} />
+    </Layout>
     <Routes>
     <Route path='/' element={<ItemListContainer />}/>
     <Route path='/category/:categoryId'/>

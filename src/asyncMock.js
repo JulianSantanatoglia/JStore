@@ -1,10 +1,12 @@
-const products = [
+export const categories = ["america", "europa"];
+
+export const items = [
     {
         id: '1',
         name: 'Camiseta Argentina',
         price: 60,
-        category: 'america',
-        img: '../src/components/Card-product/assets/camiseta-arg.jpg',
+        category: ["america", "todos"],
+        img: 'https://i.ibb.co/1v1BPq8/camiseta-arg.png',
         stock: 3,
         description: 'Camiseta de la Seleccion Argentina'
     },
@@ -12,8 +14,8 @@ const products = [
         id: '2',
         name: 'Camiseta España',
         price: 45,
-        category: 'europa',
-        img: '../src/components/Card-product/assets/camiseta-esp.jpg',
+        category: ["europa", "todos"],
+        img: 'https://i.ibb.co/Ybd5p2Z/camiseta-esp.jpg',
         stock: 9,
         description: 'Camiseta de España'
     },
@@ -21,8 +23,8 @@ const products = [
         id: '3',
         name: 'Camiseta Alemania',
         price: 25,
-        category: 'america',
-        img: '../src/components/Card-product/assets/camiseta-ale.jpg',
+        category: ["europa", "todos"],
+        img: 'https://i.ibb.co/zm49yGd/camiseta-ale.jpg',
         stock: 8,
         description: 'Camiseta de Alemania'
     },
@@ -30,8 +32,8 @@ const products = [
         id: '4',
         name: 'Camiseta Francia',
         price: 20,
-        category: 'europa',
-        img: '../src/components/Card-product/assets/camiseta-francia.jpg',
+        category: ["europa", "todos"],
+        img: 'https://i.ibb.co/VgZsKKk/camiseta-francia.jpg',
         stock: 9,
         description: 'Camiseta de Francia'
     },
@@ -39,8 +41,8 @@ const products = [
         id: '5',
         name: 'Camiseta Brasil',
         price: 50,
-        category: 'america',
-        img: ('../src/components/Card-product/assets/camiseta-brasil.jpg'),
+        category: ["america", "todos"],
+        img: ('https://i.ibb.co/sJ5qxLS/camiseta-brasil.jpg'),
         stock: 5,
         description: 'Camiseta de Brasil'
     },
@@ -48,33 +50,33 @@ const products = [
         id: '6',
         name: 'Camiseta Inglaterra',
         price: 35,
-        category: 'europa',
-        img: '../src/components/Card-product/assets/camiseta-inglaterra.jpg',
+        category: ["europa", "todos"],
+        img: 'https://i.ibb.co/r2H50F5/camiseta-inglaterra.jpg',
         stock: 7,
         description: 'Camiseta de Inglaterra'
     }
 ]
 
-export const getProducts = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(products)
-        }, 500)
-    })
-}
+// export const getProducts = () => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(products)
+//         }, 500)
+//     })
+// }
 
 export const getProductById = (productId) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products.find(prod => prod.id === productId))
+            resolve(items.find(prod => prod.id === productId))
         }, 500)
     })
 }
 
-export const getProductsByCategory = (categoryId) => {
-    return new Promise((resolve) => {
-        setTimeout(() =>{
-            resolve(products.find(prod => prod.category === categoryId))
-        }, 500)
-    })
-}
+// export const getProductsByCategory = (categoryId) => {
+//     return new Promise((resolve) => {
+//         setTimeout(() =>{
+//             resolve(products.find(prod => prod.category === categoryId))
+//         }, 500)
+//     })
+// }

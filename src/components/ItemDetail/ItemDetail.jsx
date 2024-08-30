@@ -1,3 +1,4 @@
+import './ItemDetail.css'
 import { useContext, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
@@ -21,7 +22,7 @@ const ItemDetail = ({ id, name, img, category, price, description, stock }) => {
     }
 
     return (
-        <div className="card-container">
+        <div className="card-container centrar-imagen">
         <img className="camiseta-producto" src={img} alt={name} />
         <h2 className="card-header">{name}</h2>
         <p className="card-text card-price">€{price} <span className="card-text descuento-precio">100€</span></p>

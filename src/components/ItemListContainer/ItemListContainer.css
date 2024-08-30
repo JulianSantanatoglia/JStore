@@ -1,0 +1,8 @@
+.boton-filtro {
+    padding: 15px;
+}
+.boton-contenedor {
+    display: flex;
+    margin: auto;
+    gap: 15px;
+}
