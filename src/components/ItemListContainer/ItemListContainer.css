@@ -1,6 +1,17 @@
 .boton-filtro {
     padding: 15px;
+    background-color: rgba(42, 71, 165, 0.685);
+    border-radius: 15px;
+    font-weight: 700;
+    color: white;
+    border: none;
+    margin: 0 15px;
 }
+
+.boton-filtro:active {
+    background-color: rgba(128, 152, 231, 0.685);
+}
+
 .boton-contenedor {
     display: flex;
     margin: auto;

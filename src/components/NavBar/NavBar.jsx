@@ -20,9 +20,9 @@ const NavBar = () => {
                     </div>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <NavLink to={`/`} className="nav-link prop-link">Home</NavLink>
-                            <NavLink to={`/category/america`} className={({ isActive}) => isActive ? 'ActiveOption nav-link prop-link' : 'Option nav-link prop-link'}>Camisetas de America</NavLink>
-                            <NavLink to={`/category/europa`} className={({ isActive}) => isActive ? 'ActiveOption nav-link prop-link' : 'Option nav-link prop-link nav-link prop-link' }>Camisetas de Europa</NavLink>
+                            <NavLink to={`/camisetas/todas`} className="nav-link prop-link">Home</NavLink>
+                            <NavLink to={`/camisetas/america`} className={({ isActive}) => isActive ? 'ActiveOption nav-link prop-link' : 'Option nav-link prop-link'}>Camisetas de America</NavLink>
+                            <NavLink to={`/camisetas/europa`} className={({ isActive}) => isActive ? 'ActiveOption nav-link prop-link' : 'Option nav-link prop-link nav-link prop-link' }>Camisetas de Europa</NavLink>
                         </div>
                         <CartWidget />
                         <LogoUser />

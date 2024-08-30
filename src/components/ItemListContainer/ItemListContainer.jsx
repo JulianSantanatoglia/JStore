@@ -2,31 +2,30 @@ import { useState, useEffect } from 'react'
 import { getProducts } from '../../utils/fetchData'
 import ItemList from '../ItemList/ItemList'
 import '../ItemListContainer/ItemListContainer.css'
-
-// import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({  }) => {
     const [products, setProducts] = useState([])
-
-    const [cat, setCat] = useState("todos")
+    // const [cat, setCat] = useState("todos")
+    const { categoryId } = useParams()
 
     useEffect(() => {
-        getProducts(cat)
+        getProducts(categoryId)
         .then((res)=>{
             setProducts(res);
         })
         .catch((err)=>{})
         .finally(()=> {
         });
-    }, [cat]);
+    }, [categoryId]);
 
     return (
         <>
-            <div className="boton-contenedor">
-        <button className='boton-filtro' onClick={()=> setCat("todos")}>Set Cat = Todos</button> 
-        <button className='boton-filtro' onClick={()=> setCat("america")}>Set Cat = America</button>
-        <button className='boton-filtro' onClick={()=> setCat("europa")}>Set Cat = Europa</button> 
-        </div>
+            {/* <div className="boton-contenedor">
+        <button className='boton-filtro' onClick={()=> setCat("todos")}>Todas las camisetas</button> 
+        <button className='boton-filtro' onClick={()=> setCat("america")}>Camisetas de America</button>
+        <button className='boton-filtro' onClick={()=> setCat("europa")}>Camisetas de Europa</button> 
+        </div> */}
         <div>
             <ItemList products={products}/>
         </div>
