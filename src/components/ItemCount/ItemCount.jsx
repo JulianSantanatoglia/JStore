@@ -1,32 +1,62 @@
 import { useState } from "react";
 import './ItemCount.css';
+import { useNavigate }  from "react-router-dom";
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const [quantity, setQuantity] = useState(initial)
+const ItemCount = ({ stock, initial, handleOnBuy }) => {
+
+    const navigate = useNavigate();
+    const [qty, setQty] = useState(initial);
+      const [itemAdded, setItemAdded] = useState(false);
 
 
-    const increment = () => {
-        if (quantity < stock ) {
-            setQuantity(quantity+1)
-        }
+    const handleClick = (op) => {
+        op === "-" ? clickMenos() : clickMas();
     };
 
-    const decrement = () => {
-        if(quantity > 1) {
-            setQuantity(quantity -1)
+    const clickMenos = () => {
+        if (qty === 1) {
+        alert("No se puede seleccionar menos de 1 producto");
+        return;
         }
+        setQty(qty - 1);
+    };
+
+    const clickMas = () => {
+        if (qty === stock) {
+        alert("No hay mas stock");
+        return;
+        }
+        setQty(qty + 1);
+    };
+
+    const handleAddToCart = () => {
+        handleOnBuy(qty)
+        setItemAdded(true)
+    } 
+
+
+    const handleGoToCheckout = () => {
+        setItemAdded(false)
+        navigate("/cart")
     }
 
     return (
-        <div className="count-container">
-            <button className="item-count" onClick={decrement}>-</button>
-            <span className="number-count">{quantity}</span>
-            <button className="item-count" onClick={increment}>+</button>
-            <button className="agregar-carrito" onClick={() => onAdd(quantity)} disabled={!stock}>Agregar</button>
-        </div>
-        
+        <> 
+        {itemAdded ? (
+        <button variant="primary" className="agregar-carrito" onClick={handleGoToCheckout}>Checkout</button>
+        ) : (
+        <>
+            <div className="count-container">
+            <button className="item-count" onClick={() => handleClick("-")}>-</button>
+            <span className="number-count">{qty}</span>
+            <button className="item-count" onClick={() => handleClick("+")}>+</button>
+            </div>
+            <button variant="primary" className="agregar-carrito" onClick={handleAddToCart}>Agregar al carrito</button>
+        </>
+        )}
+    </>
     );
-}
+};
 
 export default ItemCount;
 

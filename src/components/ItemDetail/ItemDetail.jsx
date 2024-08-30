@@ -1,8 +1,15 @@
 import './ItemDetail.css'
+import ItemCount from '../ItemCount/ItemCount'
+import { useCartContext } from '../../context/CartContext'
 
+const ItemDetail = ({id, name, description, price, image, stock}) => {
+    const { addToCart } = useCartContext();
 
-const ItemDetail = ({product}) => {
-    const {id, name, description, price, image, stock} = product;
+    const handleOnBuy = (qty) => {
+        console.log(`Se agregaron ${qty} productos al carrito`);
+        const item = { id, name, description, price};
+        addToCart(item, qty);
+    }
     return (
         <div className="card-container centrar-imagen">
         <img className="camiseta-producto" src={image} alt={name} />
@@ -10,6 +17,7 @@ const ItemDetail = ({product}) => {
         <p className="card-text card-price">€{price} <span className="card-text descuento-precio">100€</span></p>
         <p className="card-text card-price texto-pequeño">Stock: {stock}</p>
         <p className="card-text card-price texto-pequeño">{description}</p>
+        <ItemCount stock={stock} initial={1} handleOnBuy={handleOnBuy} />
         </div>
     )
 }

@@ -4,6 +4,7 @@ import ItemList from '../ItemList/ItemList'
 import '../ItemListContainer/ItemListContainer.css'
 import { useParams } from 'react-router-dom'
 import { Spinner } from '../Spinner/Spinner'
+import ModalCart from '../ModalCart/ModalCart'
 
 const ItemListContainer = ({  }) => {
     const [products, setProducts] = useState([])
@@ -28,6 +29,7 @@ const ItemListContainer = ({  }) => {
         { loading 
         ? <Spinner />
         : <ItemList products={products}/>}
+        <ModalCart />
         </>
     );
 };
