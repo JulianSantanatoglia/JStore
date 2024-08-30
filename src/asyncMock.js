@@ -6,7 +6,7 @@ export const items = [
         name: 'Camiseta Argentina',
         price: 60,
         category: ["america", "todas"],
-        img: 'https://i.ibb.co/1v1BPq8/camiseta-arg.png',
+        image: 'https://i.ibb.co/1v1BPq8/camiseta-arg.png',
         stock: 3,
         description: 'Camiseta de la Seleccion Argentina'
     },
@@ -15,7 +15,7 @@ export const items = [
         name: 'Camiseta España',
         price: 45,
         category: ["europa", "todas"],
-        img: 'https://i.ibb.co/Ybd5p2Z/camiseta-esp.jpg',
+        image: 'https://i.ibb.co/Ybd5p2Z/camiseta-esp.jpg',
         stock: 9,
         description: 'Camiseta de España'
     },
@@ -24,7 +24,7 @@ export const items = [
         name: 'Camiseta Alemania',
         price: 25,
         category: ["europa", "todas"],
-        img: 'https://i.ibb.co/zm49yGd/camiseta-ale.jpg',
+        image: 'https://i.ibb.co/zm49yGd/camiseta-ale.jpg',
         stock: 8,
         description: 'Camiseta de Alemania'
     },
@@ -33,7 +33,7 @@ export const items = [
         name: 'Camiseta Francia',
         price: 20,
         category: ["europa", "todas"],
-        img: 'https://i.ibb.co/VgZsKKk/camiseta-francia.jpg',
+        image: 'https://i.ibb.co/VgZsKKk/camiseta-francia.jpg',
         stock: 9,
         description: 'Camiseta de Francia'
     },
@@ -42,7 +42,7 @@ export const items = [
         name: 'Camiseta Brasil',
         price: 50,
         category: ["america", "todas"],
-        img: ('https://i.ibb.co/sJ5qxLS/camiseta-brasil.jpg'),
+        image: ('https://i.ibb.co/sJ5qxLS/camiseta-brasil.jpg'),
         stock: 5,
         description: 'Camiseta de Brasil'
     },
@@ -51,27 +51,12 @@ export const items = [
         name: 'Camiseta Inglaterra',
         price: 35,
         category: ["europa", "todas"],
-        img: 'https://i.ibb.co/r2H50F5/camiseta-inglaterra.jpg',
+        image: 'https://i.ibb.co/r2H50F5/camiseta-inglaterra.jpg',
         stock: 7,
         description: 'Camiseta de Inglaterra'
     }
 ]
 
-// export const getProducts = () => {
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve(products)
-//         }, 500)
-//     })
-// }
-
-export const getProductById = (productId) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(items.find(prod => prod.id === productId))
-        }, 500)
-    })
-}
 
 // export const getProductsByCategory = (categoryId) => {
 //     return new Promise((resolve) => {

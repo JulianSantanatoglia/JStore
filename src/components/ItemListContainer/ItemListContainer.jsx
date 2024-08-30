@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({  }) => {
     const [products, setProducts] = useState([])
-    // const [cat, setCat] = useState("todos")
+    const [cat, setCat] = useState("todos")
     const { categoryId } = useParams()
 
     useEffect(() => {
@@ -21,11 +21,6 @@ const ItemListContainer = ({  }) => {
 
     return (
         <>
-            {/* <div className="boton-contenedor">
-        <button className='boton-filtro' onClick={()=> setCat("todos")}>Todas las camisetas</button> 
-        <button className='boton-filtro' onClick={()=> setCat("america")}>Camisetas de America</button>
-        <button className='boton-filtro' onClick={()=> setCat("europa")}>Camisetas de Europa</button> 
-        </div> */}
         <div>
             <ItemList products={products}/>
         </div>
