@@ -14,7 +14,7 @@ const NavBar = () => {
                 <div className="container-fluid navbar-prop">
                     <div className="prop-logo-flex">
                     <Link to='/'>
-                    <a className="navbar-brand" href="#">JSport</a>
+                    <a className="navbar-brand" >JSport</a>
                     </Link>
                     <FutbolSolid />
                     </div>
@@ -22,7 +22,7 @@ const NavBar = () => {
                         <div className="navbar-nav">
                             <NavLink to={`/`} className="nav-link prop-link">Home</NavLink>
                             <NavLink to={`/camisetas/america`} className={({ isActive}) => isActive ? 'ActiveOption nav-link prop-link' : 'Option nav-link prop-link'}>Camisetas de America</NavLink>
-                            <NavLink to={`/camisetas/europa`} className={({ isActive}) => isActive ? 'ActiveOption nav-link prop-link' : 'Option nav-link prop-link nav-link prop-link' }>Camisetas de Europa</NavLink>
+                            <NavLink to={`/camisetas/europa`} className={({ isActive}) => isActive ? 'ActiveOption nav-link prop-link' : 'Option nav-link prop-link' }>Camisetas de Europa</NavLink>
                         </div>
                         <CartWidget />
                         <LogoUser />
