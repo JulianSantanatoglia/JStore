@@ -1,9 +1,14 @@
 .contenedor-form { 
     background-color: rgb(223, 255, 255);
-    width: 60%;
-    margin: 30px auto;
     text-align: center;
-    padding: 50px;
+    width: 600px;
+    margin: 55px auto;
+    padding: 30px;
+    border-radius: 35px;
+
+}
+.prop-tipo {
+    font-weight: 700;
 }
 
 .form-contact {
@@ -26,7 +31,7 @@
 
 .button-finalizar {
     background-color: rgb(9, 87, 255);
-    border-radius: 5px;
+    border-radius: 7px;
     font-weight: 700;
     color: white;
 }
@@ -46,7 +51,8 @@ input[type="number"] {
 }
 
 .subtitulo-form {
-    padding-bottom: 45px;
+    padding-bottom: 30px;
+    font-weight: 700;
 }
 
 
@@ -57,4 +63,9 @@ input[type="number"] {
     margin: auto;
     width: 100%;
     font-weight: 500    ;
+}
+
+.detalle-boton {
+    width: 15%;
+    margin: 25px auto;  
 }

@@ -4,7 +4,7 @@
     import { useState } from "react";
     import { addDoc, collection } from "@firebase/firestore";
     import { db } from "../../firebase/dbConnection"
-
+    import { Link } from 'react-router-dom';
 
     const Cart = () => {
     const { cart, total, removeItem, clearCart } = useCartContext();
@@ -82,11 +82,14 @@
         </tbody>
         </Table>
         <button className="button-limpiar" onClick={handleClearCart}>Vaciar🗑️</button>
-
+        <Link to={`/`}>
+        <button variant="primary" className="Option agregar-carrito detalle-boton">+ Seguir comprando
+        </button>
+        </Link>
 
         <div className="contenedor-form">
         <div className='flex-formu'>
-        <h3 className='subtitulo-form'>Completa el formulario para terminar la compra</h3>
+        <h3 className='subtitulo-form'>¡Termina la compra!</h3>
         <label className='clase-padding prop-tipo' htmlFor="term">Ingresa tu nombre</label>
         <input className="form-contact" type="text" name="name" id="name" placeholder="Julián Santanatoglia" onChange={(e)=> handleOnChange(e)}/>
         </div>
