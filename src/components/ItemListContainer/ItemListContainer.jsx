@@ -1,27 +1,52 @@
 import { useState, useEffect } from 'react'
-import { getProducts } from '../../utils/fetchData'
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/dbConnection"
 import ItemList from '../ItemList/ItemList'
 import '../ItemListContainer/ItemListContainer.css'
 import { useParams } from 'react-router-dom'
 import { Spinner } from '../Spinner/Spinner'
-import ModalCart from '../ModalCart/ModalCart'
+// import ModalCart from '../ModalCart/ModalCart'
+
+
+
 
 const ItemListContainer = ({  }) => {
     const [products, setProducts] = useState([])
-    // const [cat, setCat] = useState("todos")
     const { categoryId } = useParams()
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
         setLoading(true);
-        getProducts(categoryId)
-        .then((res)=>{
-            setProducts(res);
-        })
-        .catch((err)=>{})
-        .finally(()=> {
-        setLoading(false);
-        });
+        const productsCollection = collection(db, "productos")
+
+        if (categoryId) {
+            const productsCollectionFiltered = query(productsCollection, where("category", "array-contains", categoryId));
+            getDocs(productsCollectionFiltered)
+            .then(({docs}) => {
+                const prodFromDocs = docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+                setProducts(prodFromDocs)
+                setLoading(false);
+            })
+            .catch((error) => {
+            });
+        } else {
+            getDocs(productsCollection)
+            .then(({docs}) => {
+                const prodFromDocs = docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+                setProducts(prodFromDocs)
+                setLoading(false);
+            })
+            .catch((error) => {
+            });
+        }
+
     }, [categoryId]);
 
     return (
@@ -29,7 +54,7 @@ const ItemListContainer = ({  }) => {
         { loading 
         ? <Spinner />
         : <ItemList products={products}/>}
-        <ModalCart />
+        {/* <ModalCart /> */}
         </>
     );
 };

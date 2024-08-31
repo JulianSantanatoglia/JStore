@@ -6,7 +6,6 @@ const ItemDetail = ({id, name, description, price, image, stock}) => {
     const { addToCart } = useCartContext();
 
     const handleOnBuy = (qty) => {
-        console.log(`Se agregaron ${qty} productos al carrito`);
         const item = { id, name, description, price};
         addToCart(item, qty);
     }

@@ -2,7 +2,7 @@ export const categories = ["america", "europa"];
 
 export const items = [
     {
-        id: '1',
+
         name: 'Camiseta Argentina',
         price: 60,
         category: ["america", "todas"],
@@ -11,7 +11,6 @@ export const items = [
         description: 'Camiseta de la Seleccion Argentina'
     },
     {
-        id: '2',
         name: 'Camiseta España',
         price: 45,
         category: ["europa", "todas"],
@@ -20,7 +19,6 @@ export const items = [
         description: 'Camiseta de España'
     },
     {
-        id: '3',
         name: 'Camiseta Alemania',
         price: 25,
         category: ["europa", "todas"],
@@ -29,7 +27,6 @@ export const items = [
         description: 'Camiseta de Alemania'
     },
     {
-        id: '4',
         name: 'Camiseta Francia',
         price: 20,
         category: ["europa", "todas"],
@@ -38,7 +35,6 @@ export const items = [
         description: 'Camiseta de Francia'
     },
     {
-        id: '5',
         name: 'Camiseta Brasil',
         price: 50,
         category: ["america", "todas"],
@@ -47,7 +43,6 @@ export const items = [
         description: 'Camiseta de Brasil'
     },
     {
-        id: '6',
         name: 'Camiseta Inglaterra',
         price: 35,
         category: ["europa", "todas"],
@@ -57,11 +52,3 @@ export const items = [
     }
 ]
 
-
-// export const getProductsByCategory = (categoryId) => {
-//     return new Promise((resolve) => {
-//         setTimeout(() =>{
-//             resolve(products.find(prod => prod.category === categoryId))
-//         }, 500)
-//     })
-// }

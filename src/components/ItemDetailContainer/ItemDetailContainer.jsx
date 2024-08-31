@@ -1,9 +1,10 @@
 import './ItemDetailContainer.css'
 import { useEffect, useState } from 'react'
-import { getProductById } from '../../utils/fetchData'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 import { Spinner } from '../Spinner/Spinner'
+import { db } from '../../firebase/dbConnection'
+import { collection, getDoc, doc } from 'firebase/firestore';
 
 
 
@@ -14,16 +15,18 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true);
-        getProductById(id)
-        .then((res)=>{
-            setProduct(res);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-        .finally(()=> {
-        setLoading(false);
-        });
+        const productsCollection = collection(db, "productos");
+        const refDoc = doc(productsCollection, id)
+
+        getDoc(refDoc)
+            .then((doc) => {
+                setProduct({id: doc.id, ...doc.data()})
+                setLoading(false);
+            })
+            .catch((error) => {
+                setLoading(false);
+            })
+
     }, [id]);
 
     return(
