@@ -10,6 +10,7 @@ const ItemDetail = ({id, name, description, price, image, stock}) => {
         addToCart(item, qty);
     }
     return (
+        <div className="detail-container">
         <div className="card-container centrar-imagen">
         <img className="camiseta-producto" src={image} alt={name} />
         <h2 className="card-header">{name}</h2>
@@ -17,6 +18,7 @@ const ItemDetail = ({id, name, description, price, image, stock}) => {
         <p className="card-text card-price texto-pequeño">Stock: {stock}</p>
         <p className="card-text card-price texto-pequeño">{description}</p>
         <ItemCount stock={stock} initial={1} handleOnBuy={handleOnBuy} />
+        </div>
         </div>
     )
 }

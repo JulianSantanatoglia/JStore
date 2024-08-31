@@ -1,3 +1,9 @@
 .centrar-imagen {
     margin: auto;
 }
+
+.detail-container {
+    /* background-color: rgb(243, 241, 241); */
+    width: 60%;
+    margin: auto;
+}

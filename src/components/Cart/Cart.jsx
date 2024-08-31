@@ -24,6 +24,9 @@
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
+    
+
+
 
     const handleSaveCart = () => { 
         console.log("Saving in database")
@@ -40,7 +43,7 @@
 
         addDoc(ordersCollection, newOrder)
         .then((doc)=>{
-            alert("Order saved with id: " + doc.id)
+            alert("Tu compra ha sido generada con el siguiente indentificador: " + doc.id)
             clearCart();
             setFormData({name:"", tel:"", email:""})
         })
