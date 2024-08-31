@@ -28,11 +28,7 @@
 
 
 
-    const handleSaveCart = () => { 
-        console.log("Saving in database")
-        console.log("formdata", formData)
-        console.log("cart", cart)
-        
+    const handleSaveCart = () => {     
         const ordersCollection = collection(db, "orders")
         const newOrder = {
         buyer: formData,
