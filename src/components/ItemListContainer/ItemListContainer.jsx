@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/dbConnection"
+import { useCartContext } from "../../context/CartContext"
 import ItemList from '../ItemList/ItemList'
 import '../ItemListContainer/ItemListContainer.css'
 import { useParams } from 'react-router-dom'
@@ -10,47 +11,41 @@ import { Spinner } from '../Spinner/Spinner'
 
 
 
-const ItemListContainer = ({  }) => {
+const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const { categoryId } = useParams()
     const [loading, setLoading] = useState(true);
+    const { titulo, titulo2 } = useCartContext();
+
+    let titleToShow = titulo + " " + titulo2;
 
 
     useEffect(() => {
         setLoading(true);
-        const productsCollection = collection(db, "productos")
-
-        if (categoryId) {
-            const productsCollectionFiltered = query(productsCollection, where("category", "array-contains", categoryId));
-            getDocs(productsCollectionFiltered)
-            .then(({docs}) => {
-                const prodFromDocs = docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data()
-                }))
-                setProducts(prodFromDocs)
-                setLoading(false);
-            })
-            .catch((error) => {
-            });
-        } else {
-            getDocs(productsCollection)
-            .then(({docs}) => {
-                const prodFromDocs = docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data()
-                }))
-                setProducts(prodFromDocs)
-                setLoading(false);
-            })
-            .catch((error) => {
-            });
+        let productsCollection = collection(db, "productos")
+        
+        if(categoryId) {
+        productsCollection = query(productsCollection, where("category", "array-contains", categoryId));
         }
+
+        getDocs(productsCollection)
+            .then(({docs}) => {
+            const prodFromDocs = docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }))
+            setProducts(prodFromDocs)
+            setLoading(false);
+        })
+        .catch((error) => {
+            console.error('Error en el getting: ', error);
+        });
 
     }, [categoryId]);
 
     return (
         <>
+        {/* <div>Titulo?: {titleToShow}</div> */}
         { loading 
         ? <Spinner />
         : <ItemList products={products}/>}

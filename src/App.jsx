@@ -8,6 +8,7 @@ import CartContextProvider from './context/CartContext'
 import Layout from './components/pages/Layout'
 import Cart from './components/Cart/Cart'
 
+
 function App() {
   const TituloDelProyecto = "Camisetas de Futbol";
   

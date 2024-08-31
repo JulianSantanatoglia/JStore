@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-const firebaseConfig = {
+    const firebaseConfig = {
     apiKey: "AIzaSyDCcUTE2nROkLrebv_9_QCfTaLR6pL05bo",
     authDomain: "jsfutbol-cdf8d.firebaseapp.com",
     projectId: "jsfutbol-cdf8d",
@@ -10,8 +10,7 @@ const firebaseConfig = {
     appId: "1:466782058794:web:972ac4452aa1d56e800653"
     };
 
+const app = initializeApp(firebaseConfig);
 
-    const app = initializeApp(firebaseConfig);
 
-
-    export const db = getFirestore(app);
+export const db = getFirestore(app);

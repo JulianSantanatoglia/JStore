@@ -56,6 +56,7 @@ const CartContextProvider = ({children}) => {
         setTotal(total - price * qty);
         setQtyItems(qtyItems - qty);
 
+
         const newCart = cart.filter((elem) => elem.id !== id);
 
         setCart(newCart);
@@ -76,8 +77,13 @@ const CartContextProvider = ({children}) => {
 
     const contextValue = {
         titulo: 'Aca va un titulo',
+        titulo2: 'Aca va  otro titulo',
         qtyItems,
-        addToCart
+        total,
+        cart,
+        addToCart,
+        clearCart,
+        removeItem
     }
 
     return (

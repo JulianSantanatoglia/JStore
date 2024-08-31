@@ -1,13 +1,17 @@
+    import './Cart.css'
     import { useCartContext } from "../../context/CartContext";
     import { Table } from "react-bootstrap";
     import { useState } from "react";
     import { addDoc, collection } from "@firebase/firestore";
-    import { db } from "../../firebase/dbConnection";
+    import { db } from "../../firebase/dbConnection"
+
 
     const Cart = () => {
-    const { cart, total, removeItem, clearCart } = useCartContext(); //cart es un array de productos en el carrito
+    const { cart, total, removeItem, clearCart } = useCartContext();
+
+    const [formData, setFormData] = useState({name:"", tel:"", email:""});
+
     
-    const [formData,setFormData] = useState({name:"", tel:"", email:""});
     const handleRemoveItem = (id, price, qty) => {
         removeItem(id, price, qty);
     };
@@ -15,12 +19,17 @@
     const handleClearCart = () => {
         clearCart();
     };
+
     const handleOnChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
-    const handleSaveCart = () => {
 
+    const handleSaveCart = () => { 
+        console.log("Saving in database")
+        console.log("formdata", formData)
+        console.log("cart", cart)
+        
         const ordersCollection = collection(db, "orders")
         const newOrder = {
         buyer: formData,
@@ -31,7 +40,7 @@
 
         addDoc(ordersCollection, newOrder)
         .then((doc)=>{
-            alert("Guardar orden con id: " + doc.id)
+            alert("Order saved with id: " + doc.id)
             clearCart();
             setFormData({name:"", tel:"", email:""})
         })
@@ -45,16 +54,16 @@
         <thead>
             <tr>
             <th>#</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Qty</th>
-            <th>Actions</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Acción</th>
             </tr>
         </thead>
         <tbody>
-            {cart?.map(({ id, name, price, qty }, index) => {
+            {cart?.map(({ id, name, price, qty }) => {
             return (
-                <tr key={index}>
+                <tr key={id}>
                 <td>{id}</td>
                 <td>{name}</td>
                 <td>{price}</td>
@@ -73,15 +82,29 @@
             </tr>
         </tbody>
         </Table>
-        <button onClick={handleClearCart}>Limpiar carrito</button>
+        <button className="button-limpiar" onClick={handleClearCart}>Vaciar🗑️</button>
 
-        <input type="text" name="name" id="name" placeholder="Ingrese su nombre" onChange={(e)=> handleOnChange(e)}/>
-        <input type="number" name="tel" id="tel" placeholder="Ingrese su telefono" onChange={(e)=> handleOnChange(e)}/>
-        <input type="email" name="email" id="email" placeholder="Ingrese su email" onChange={(e)=> handleOnChange(e)}/>
-        <button onClick={handleSaveCart}>Finalizar Compra</button>
+
+        <div className="contenedor-form">
+        <div className='flex-formu'>
+        <h3 className='subtitulo-form'>Completa el formulario para terminar la compra</h3>
+        <label className='clase-padding prop-tipo' htmlFor="term">Ingresa tu nombre</label>
+        <input className="form-contact" type="text" name="name" id="name" placeholder="Julián Santanatoglia" onChange={(e)=> handleOnChange(e)}/>
+        </div>
+        <div className='flex-formu'>
+        <label className='clase-padding prop-tipo' htmlFor="term">Ingresa tu telefono</label>
+        <input className="form-contact" type="number" name="tel" id="tel" placeholder="671 000 000" onChange={(e)=> handleOnChange(e)}/>
+        </div>
+        <div className='flex-formu'>
+        <label className='clase-padding prop-tipo' htmlFor="term">Ingresa tu email</label>
+        <input className="form-contact" type="email" name="email" id="email" placeholder="julian@prueba.com" onChange={(e)=> handleOnChange(e)}/>
+
+        <button className="form-contact button-finalizar" onClick={handleSaveCart}>Finalizar compra</button>
+        </div>
+        </div>
     </>
     )
     }
 
 
-    export default Cart
+    export default Cart 
