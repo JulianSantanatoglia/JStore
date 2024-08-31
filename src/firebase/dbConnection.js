@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
     const firebaseConfig = {
-    apiKey: "AIzaSyDCcUTE2nROkLrebv_9_QCfTaLR6pL05bo",
-    authDomain: "jsfutbol-cdf8d.firebaseapp.com",
-    projectId: "jsfutbol-cdf8d",
-    storageBucket: "jsfutbol-cdf8d.appspot.com",
-    messagingSenderId: "466782058794",
-    appId: "1:466782058794:web:972ac4452aa1d56e800653"
+    apiKey: import.meta.env.VITE_APY_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID
     };
 
 const app = initializeApp(firebaseConfig);

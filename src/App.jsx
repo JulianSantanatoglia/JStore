@@ -10,6 +10,7 @@ import Cart from './components/Cart/Cart'
 
 
 function App() {
+  console.log("App", import.meta.env.VITE_API_KEY);
   const TituloDelProyecto = "Camisetas de Futbol";
   
   return (
