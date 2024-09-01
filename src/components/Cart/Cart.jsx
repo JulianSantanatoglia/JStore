@@ -5,6 +5,7 @@
     import { addDoc, collection } from "@firebase/firestore";
     import { db } from "../../firebase/dbConnection"
     import { Link } from 'react-router-dom';
+    import Swal from 'sweetalert2';
 
     const Cart = () => {
     const { cart, total, removeItem, clearCart } = useCartContext();
@@ -39,7 +40,23 @@
 
         addDoc(ordersCollection, newOrder)
         .then((doc)=>{
-            alert("Tu compra ha sido generada con el siguiente indentificador: " + doc.id)
+            Swal.fire({
+                title: "¿Quieres continuar con la compra?",
+                text: "No se puede volver atras",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "¡Comprar!"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                title: "Compra realizada",
+                text: "Tu compra se ha realizado correctamente",
+                icon: "success"
+                });
+            }
+            });
             clearCart();
             setFormData({name:"", tel:"", email:""})
         })
