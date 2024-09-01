@@ -24,8 +24,8 @@ const NavBar = () => {
                             <NavLink to={`/camisetas/america`} className={({ isActive}) => isActive ? 'ActiveOption nav-link prop-link' : 'Option nav-link prop-link'}>Camisetas de America</NavLink>
                             <NavLink to={`/camisetas/europa`} className={({ isActive}) => isActive ? 'ActiveOption nav-link prop-link' : 'Option nav-link prop-link' }>Camisetas de Europa</NavLink>
                         </div>
-                        <CartWidget />
                         <LogoUser />
+                        <CartWidget />
                 </div> 
                 </div>
             </nav>
