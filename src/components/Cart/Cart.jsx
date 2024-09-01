@@ -85,8 +85,8 @@
                 <td>{price}</td>
                 <td>{qty}</td>
                 <td>
-                    <button onClick={() => handleRemoveItem(id, price, qty)}>
-                    Eliminar producto
+                    <button className="boton-remover" onClick={() => handleRemoveItem(id, price, qty)}>
+                    ❌
                     </button>
                 </td>
                 </tr>

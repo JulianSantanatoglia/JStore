@@ -1,7 +1,7 @@
 .contenedor-form { 
     background-color: rgb(223, 255, 255);
     text-align: center;
-    width: 600px;
+    width: 60%;
     margin: 55px auto;
     padding: 30px;
     border-radius: 35px;
@@ -20,7 +20,7 @@
 }
 
 .button-limpiar {
-    width: 15%;
+    /* width: 8%; */
     background-color: #FFFFFF;
     border-color: #FFFFFF;
     margin: auto;
@@ -66,6 +66,6 @@ input[type="number"] {
 }
 
 .detalle-boton {
-    width: 15%;
+    width: 200px;
     margin: 25px auto;  
 }
