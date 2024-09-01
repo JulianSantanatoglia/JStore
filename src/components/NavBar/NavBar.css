@@ -17,7 +17,9 @@
     transition-duration: 350ms;
 }
 
-
+.collapse:not(.show) {
+    display: block;
+}
 .error-404 {
     font-size: 45px;
     margin: auto;
