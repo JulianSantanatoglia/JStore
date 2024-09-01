@@ -66,6 +66,7 @@
 
     return (
         <>
+        <div className='tabla-responsive'>
         <Table striped bordered hover>
         <thead>
             <tr>
@@ -98,6 +99,7 @@
             </tr>
         </tbody>
         </Table>
+        </div>
         <button className="button-limpiar" onClick={handleClearCart}>Vaciar🗑️</button>
         <Link to={`/`}>
         <button variant="primary" className="Option agregar-carrito detalle-boton">+ Seguir comprando
