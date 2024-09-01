@@ -17,5 +17,3 @@ Este proyecto es parte de la entrega final para el curso de React de CoderHouse.
 - **CSS**: Hojas de estilo para la presentación de la aplicación.
 - **HTML**: Estructura base de la aplicación.
 - **JSX**: Sintaxis utilizada por React para escribir componentes combinando JavaScript y HTML.
-# jsfutbolreact
-# jstore
